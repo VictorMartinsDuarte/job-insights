@@ -4,8 +4,8 @@ import csv
 
 @lru_cache
 def read(path):
-    with open(path, mode='r') as csv_data:
-        dict_data = csv.DictReader(csv_data, delimiter=',')
+    with open(path, mode='r') as jobs_data:
+        dict_data = csv.DictReader(jobs_data, delimiter=',')
         list_data = list(dict_data)
         return list_data
     # Ref: https://linuxhint.com/import-csv-to-list-python/
