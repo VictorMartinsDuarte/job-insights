@@ -1,4 +1,4 @@
-from jobs import read
+from src.jobs import read
 
 
 def get_unique_job_types(path):
@@ -37,21 +37,15 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+    jobs_data = read(path)
+    all_max_salaries = []
+    for job in jobs_data:
+        if job['max_salary'] not in all_max_salaries:
+            if job['max_salary'] != '' and job['max_salary'].isdigit():
+                all_max_salaries.append(int(job['max_salary']))
+    max_salary = max(all_max_salaries)
+    return max_salary
+    # pass
 
 
 def get_min_salary(path):
