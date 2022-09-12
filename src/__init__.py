@@ -1,0 +1,1 @@
+init = 'Iniciando o projeto Job Insights'
